@@ -93,11 +93,11 @@ function reset() {
 //   .then((x) => console.log(x))
 //   .catch((x) => console.log(x));
 
-const login = async (username, password) => {
-  if (!username || !password) throw 'Missing Credentials';
-  if (password === 'corgi') return 'Welcome';
-  throw 'Invalid password';
-};
+// const login = async (username, password) => {
+//   if (!username || !password) throw 'Missing Credentials';
+//   if (password === 'corgi') return 'Welcome';
+//   throw 'Invalid password';
+// };
 
 // login('ABC', 'corgi')
 //   .then((msg) => {
@@ -109,24 +109,47 @@ const login = async (username, password) => {
 //     console.log(error);
 //   });
 
-const delayedColorChange = (newColor, delay) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      document.body.style.backgroundColor = newColor;
-      resolve(newColor);
-    }, delay);
+// const delayedColorChange = (newColor, delay) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       document.body.style.backgroundColor = newColor;
+//       resolve(newColor);
+//     }, delay);
+//   });
+// };
+
+// async function rainbow() {
+//   await delayedColorChange('red', 2000);
+//   await delayedColorChange('orange', 2000);
+// }
+
+// async function waitForRainbow() {
+//   await rainbow();
+//   return 'RAINBOW IS DONE';
+// }
+
+// const x = waitForRainbow();
+// console.log(x);
+
+// Response.json()
+// The json() method of the Response interface takes a Response stream and reads it to completion. It returns a promise which resolves with the result of parsing the body text as JSON.
+
+// ASYNC function
+// const getStarWars = async (person) => {
+//   const getJSON = await fetch(`https://swapi.dev/api/people/${person}`);
+//   const getDataFromJson = await getJSON.json();
+//   console.log(getJSON, getDataFromJson);
+// };
+
+function test() {
+  console.log('Ready');
+  let example = fetch('http://httpbin.org/get').then((res) => {
+    console.log('This is inside the then() block');
   });
-};
-
-async function rainbow() {
-  await delayedColorChange('red', 2000);
-  await delayedColorChange('orange', 2000);
+  console.log(
+    'This is after the fetch statement where we are now executing other code that is not async'
+  );
 }
 
-async function waitForRainbow() {
-  await rainbow();
-  return 'RAINBOW IS DONE';
-}
-
-const x = waitForRainbow();
-console.log(x);
+test();
+console.log('this is after the entire function');
